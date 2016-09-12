@@ -1,0 +1,70 @@
+BattleSubs:
+    private Player p1
+	private Player p2
+	private final int boardSize = 3
+	private final int[] shipSizes = { 8, 7, 5, 5, 3 }
+	private Random rand = new Random()
+	private Scanner in = new Scanner(System.in)
+	
+	public BattleSubs() 
+	public BattleSubs(Player a, Player b) 
+	
+	private String printCoord(int[] r)
+	public int[] getSizes()
+	public void initRandomShips(Player player)
+	public void initManualShips(Player player)
+	private void inCoords(int[] coord1, int[] coord2, int x) 
+	private boolean secondCoord(int[] coord1, int[] coord2, int size) 
+	private boolean coordInBoard(int[] arr)
+	private static double distance(int[] start, int[] end) 
+	public void play() 
+	
+Player:
+	private final int boardSize = 3
+	private int[][][] board = new int[boardSize][boardSize][boardSize] //0 is empty, 1 has a ship, 2 is hit
+	private ArrayList<Ship> playerShips = new ArrayList<Ship>()
+	private Scanner in = new Scanner(System.in)
+	private int powerUps = 0
+	private String name
+	private boolean stillAlive = true
+	private boolean myTurn = false
+
+	public Player(String n) 
+	public int[][][] getBoard()
+	public ArrayList<Ship> getPlayerShips()
+	public String getName()
+	public boolean isMyTurn()
+	public void setMyTurn(boolean v)
+	public boolean isAlive()
+	public void setHit(int arr[])
+	public void receiveAttack(int[] arr)
+	public boolean addShip(int length, int[] start, int[] end) 
+	private boolean placeOnBoard(int[] start, int[] end)
+	private boolean isLegalMove(int[] arr) 
+	private boolean hasBeenHit(int[] arr, Player otherPlayer)
+	public void rollDice() 
+	private String printCoord(int[] r)
+	public void attackCoord(Player otherPlayer) 
+	private void attackLeft(int [] attack, Player otherPlayer) 
+	private void attackTop(int [] attack, Player otherPlayer) 
+	private void attackRight(int [] attack, Player otherPlayer) 
+	public void specialAttack(Player otherPlayer)
+	public void playerTurn(Player otherPlayer)
+	public void displayBoard(int layer)
+	public void displayBoardTop(int layer)
+	public void displayBoardLeft(int layer)
+	public void displayBoardRight(int layer)
+	public String toString()
+	
+Ship:
+	private int length
+	private int[] startPoint = new int[3]
+	private int[] endPoint = new int[3]
+	private boolean isAlive = true
+	private boolean[] hit
+	private ArrayList<int[]> shipParts = new ArrayList<int[]>()
+	
+	public Ship(int l, int[] start, int[] end)
+	public void shipHit(int partOfShip) 
+	public boolean getIsAlive()
+	public ArrayList<int[]> getCoords()
